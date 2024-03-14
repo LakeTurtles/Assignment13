@@ -1,0 +1,171 @@
+* {
+padding: 0px;
+margin: 0px;
+}
+
+body {
+    background-color: #19353b;
+    color: #ecf0f1;
+    font-family: Arial, sans-serif;
+transition: all .2s ease-in-out;
+    display: flex;
+    justify-content: center;
+}
+
+
+
+.outer-box {
+width: 95%;
+height: 90%;
+min-height: 700px;
+margin-top: 5vh;
+outline: 1px solid white;
+margin-bottom: 5vh;
+outline: 1px solid white;
+display: flex;
+justify-content: center;
+flex-wrap: wrap;
+}
+
+.outer-box > h1 {
+margin-top: 15px;
+margin-left: 5px;
+ color: #37adc2;
+ text-shadow: 2px 2px black;
+ font-weight: 300;
+ }
+
+.outer-box > h2 {
+margin-top: 20px;
+}
+
+
+.fx-box {
+width: 95%;
+min-height: 500px;
+
+background: radial-gradient(rgb(4, 14, 48)0%,rgb(58, 102, 131)5%, rgb(22, 28, 56)70%, rgb(4, 14, 48)100% );
+  border: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  border-radius: 20px;
+
+}
+.form_a {
+    width: 80vw;
+    margin: 20px auto;
+    background-color: #282f37;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: end;
+    flex-direction: row;
+    flex-wrap: wrap;
+    transition: all .2s ease-in-out;
+    border: 1px solid black;
+    text-shadow: 2px 2px 2px black;
+}
+
+.form_a > div {
+gap: 20px;
+}
+
+label {
+text-shadow: 2px 2px 2px black;
+    margin-bottom: 8px;
+
+}
+
+.dis-block {
+width: 100%;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 65vw;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid rgb(222, 222, 222);
+    border-radius: 14px;
+    background-color: #243a50;;
+    color: #ecf0f1;
+     font-size: 16px;
+     text-shadow: 2px 2px 2px black;
+}
+
+input[type="submit"] {
+    background: linear-gradient(rgb(32, 100, 5)0%,rgb(15, 80, 92)15%, rgb(22, 28, 56)60%, rgb(32, 100, 5)100% ) ;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 20px;
+    outline: 1px solid black;
+    text-shadow: 2px 2px 2px black;
+}
+
+.del_button {
+
+  min-width: 100px;
+ color: rgb(255, 255, 255);
+  background: linear-gradient( rgba(83, 230, 241, 0.712)0%, rgb(63, 93, 170)25%, rgb(19, 50, 129)75%, rgba(223, 19, 19, 0.767)100%);
+text-shadow: 2px 2px 2px black;
+box-shadow: 2px 4px 6px rgb(250, 116, 6);
+    height: 30px;
+    border-radius: 20px;
+    margin-left: 5vw;
+    outline: 3px solid red;
+font-size: 1.1em;
+}
+
+.del_button:hover {
+transform: translate(1px, -2px);
+box-shadow: 4px 10px 20px black;
+}
+
+input[type="submit"]:hover {
+    background: linear-gradient(rgb(16, 48, 4)0%,rgb(58, 102, 131)15%, rgb(22, 28, 56)60%, rgb(24, 71, 6)100% ) ;
+     transform: translateY(-3px);
+     box-shadow: 0px 10px 20px #011e1a;
+     text-decoration-line: underline;
+}
+
+.acc{
+margin-right: 30px;
+}
+
+.users_list_btn {
+margin-top: 30px;
+margin-left: 20px;
+}
+
+
+a:hover {
+    color: orange;
+    transform: translateY(-3px);
+    box-shadow: 0px 10px 20px #011e1a;
+    text-decoration-line: underline;
+}
+
+a{
+color: #8be1c5;
+text-decoration: none;
+font-size:18px;
+width: 100px;
+height: 20px;
+border-radius: 20px;
+padding: 5px 5px;
+margin-top: 20px;
+text-shadow: 2px 2px 2px black;
+}
+
+a:visited {
+color: white;
+}
+
+a:visited:hover {
+color: orange;
+}

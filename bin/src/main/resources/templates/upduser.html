@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <title>Update Upd Account</title>
+    <link rel="stylesheet" href="css/registerpage.css">
+</head>
+<body>
+<h1>Upd Your Account</h1>
+
+<form action="" method="post">
+    <div>
+        Username: <input type="text" th:field="${user.username}" />
+    </div>
+    <div>
+        Password: <input type="password" th:field="${user.password}" />
+    </div>
+    <div>
+        Full Name: <input type="text" th:field="${user.name}" />
+    </div>
+    <div>
+        <input type="submit" value="Create Account" />
+    </div>
+</form>
+
+
+<a href="/userslist">Users List</a>
+
+
+</body>
+</html>

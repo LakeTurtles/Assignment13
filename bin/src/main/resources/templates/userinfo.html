@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <title>Create Account</title>
+    <link rel="stylesheet" href="css/style.css" />
+
+    <style media = "all">
+
+* {
+padding: 0px;
+margin: 0px;
+}
+
+body {
+    background-color: #19353b;
+    color: #ecf0f1;
+    font-family: Arial, sans-serif;
+
+    display: flex;
+    justify-content: center;
+}
+
+
+
+.outer-box {
+width: 95%;
+height: 90%;
+min-height: 700px;
+margin-top: 5vh;
+outline: 1px solid white;
+margin-bottom: 5vh;
+outline: 1px solid white;
+display: flex;
+justify-content: center;
+flex-wrap: wrap;
+}
+
+.outer-box > h1 {
+margin-top: 15px;
+ color: #37adc2;
+ text-shadow: 2px 2px black;
+ }
+
+
+
+.fx-box {
+width: 95%;
+min-height: 500px;
+background: radial-gradient(rgb(4, 14, 48)0%,rgb(58, 102, 131)15%, rgb(22, 28, 56)70%, rgb(4, 14, 48)100% );
+  border: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  border-radius: 20px;
+  transition: all .2s ease-in-out;
+
+}
+.form_a {
+    width: 80vw;
+    margin: 20px auto;
+    background-color: #282f37;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    row-gap: 20px;
+    border: 1px solid black;
+    text-shadow: 2px 2px 2px black;
+}
+
+.text-fields {
+width: 50%;
+min-width: 300px;
+font-size: 1.5em;
+display: grid;
+align-content: stretch;
+justify-content: center;
+justify-items: end;
+
+}
+
+.text-fields > h1, .text-fields > h2 {
+color: #9797d0;
+border-bottom: 1px solid white;
+text-shadow: 2px 2px black;
+margin-bottom: 12px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 70vw;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid rgb(222, 222, 222);
+    border-radius: 4px;
+    background-color: #243a50;;
+    color: #ecf0f1;
+}
+
+input[type="submit"] {
+    background: linear-gradient(rgb(32, 100, 5)0%,rgb(91, 147, 184)15%, rgb(22, 28, 56)60%, rgb(32, 100, 5)100% ) ;
+
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background: linear-gradient(rgb(16, 48, 4)0%,rgb(58, 102, 131)15%, rgb(22, 28, 56)60%, rgb(24, 71, 6)100% ) ;
+     transform: translateY(-3px);
+     box-shadow: 0px 10px 20px #011e1a;
+     text-decoration-line: underline;
+}
+
+.users_list_btn {
+margin-top: 30px;
+margin-left: 20px;
+}
+
+
+a:hover {
+    color: orange;
+    transform: translateY(-3px);
+    box-shadow: 0px 10px 20px #011e1a;
+    text-decoration-line: underline;
+}
+
+a{
+color:  #8be1c5;
+text-decoration: none;
+font-size:18px;
+width: 150px;
+height: 20px;
+border-radius: 20px;
+padding: 5px 5px;
+margin-top: 20px;
+text-shadow: 2px 2px 2px black;
+}
+
+
+a:visited {
+color: #8be1c5;
+}
+
+a:visited:hover {
+color: orange;
+}
+
+
+		</style>
+</head>
+<body>
+
+<div class="outer-box">
+    <h1>View Your Account</h1>
+
+    <div class="fx-box">
+
+        <div class="form_a">
+
+            <div class="left_info text-fields">
+
+                <h1> User Credentials</h1>
+                <div>
+                    <span  id="user-id" th:text="${user.userId}"></span>
+                </div>
+
+                <div>
+                    <span class="th_field" th:text="${user.username}" ></span>
+                </div>
+                <div>
+                    <span th:text="${user.name}" class="th_field"></span>
+                </div>
+                <div>
+                    <span th:text="${user.password}" class="th_field"></span>
+                </div>
+
+
+                <h2>Bank Accounts</h2>
+
+                <div th:each="account : ${user.accounts}" class="th_field">
+                    <a th:href="@{/users/{userId}/accounts/{accountId}(userId=${user.userId},accountId=${account.accountId})}">
+                        <span th:text="${account.accountName}"></span></a>
+                </div>
+            </div>
+
+            <div class="right_info text-fields">
+
+                <h1>Address</h1>
+                <div>
+                    <span  class="th_field" th:text="${user.address.addressLine1}"></span>
+                </div>
+
+                <div>
+                    <span class="th_field" th:text="${user.address.addressLine2}" ></span>
+                </div>
+                <div>
+                    <span th:text="${user.address.city}" class="th_field"></span>
+                </div>
+                <div>
+                    <span th:text="${user.address.region}" class="th_field"></span>
+                </div>
+
+                <div>
+                    <span th:text="${user.address.country}" class="th_field"></span>
+                </div>
+
+                <div>
+                    <span th:text="${user.address.zipCode}" class="th_field"></span>
+                </div>
+
+
+
+
+
+            </div>
+
+
+
+        </div>
+
+        <a th:href="@{/users/{personL}(personL=${user.userId})}"  >
+            <span>Update or Edit</span>
+        </a>
+
+
+
+    </div>
+
+
+
+    <a href="/userslist">Users List</a>
+
+</div>
+
+
+
+</body>
+</html>

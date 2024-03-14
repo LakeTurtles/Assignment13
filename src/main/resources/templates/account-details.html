@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Account Details</title>
+</head>
+<body>
+
+<div>
+    <h1 th:text="${accountName}"></h1>
+
+    <div style="height: 500px; overflow-y: scroll;">
+        <table>
+            <thead>
+            <tr>
+                <th>Transaction ID</th>
+                <th>Date</th>
+                <th>Amount</th>
+                <th>Type</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="transaction : ${transactions}">
+                <td th:text="${transaction.transactionId}"></td>
+                <td th:text="${transaction.transactionDate}"></td>
+                <td th:text="${transaction.amount}"></td>
+                <td th:text="${transaction.type}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <form th:action="@{'/add-transaction/' + ${accountId}}" method="post" th:object="${newTransaction}">
+        <label>Date: <input type="date" th:field="*{transactionDate}" required/></label><br/>
+        <label>Amount: <input type="text" th:field="*{amount}" required/></label><br/>
+        <label>Type: <input type="text" th:field="*{type}" required/></label><br/>
+        <button type="submit">Add Transaction</button>
+    </form>
+</div>
+
+</body>
+</html>
++

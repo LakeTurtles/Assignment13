@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+  <title>Update Address</title>
+  <link rel="stylesheet" href="/css/updateaddresscss.css" />
+
+</head>
+<body>
+
+<div class="outer-box">
+  <h1>Update Your Address</h1>
+
+  <div class="fx-box">
+
+
+    <form class="form_a" th:action="@{/users/{userId}(userId=${user.userId})}" method="post" th:if="${user.userId != null}">
+
+      <div>
+        <input type="hidden" th:field="${user.userId}">
+      </div>
+      <div>
+        <input type="hidden" th:field="${user.username}">
+      </div>
+      <div>
+        <input type="hidden" th:field="${user.password}">
+      </div>
+      <div>
+        <input type="hidden" th:field="${user.name}">
+      </div>
+
+      <div>
+        <input type="hidden" th:field="${user.address.user}">
+      </div>
+
+      <div>
+        <input type="hidden" th:field="${user.address.userId}">
+      </div>
+
+      <div>
+        <label>Address Line 1:  </label>
+        <input type="text" th:field="${user.address.addressLine1}" />
+      </div>
+
+      <div>
+        <label>Address Line 2: </label>
+        <input  type="text" th:field="${user.address.addressLine2}" />
+
+      </div>
+      <div>
+        <label>City:  </label>
+        <input type="text" th:field="${user.address.city}" />
+      </div>
+      <div>
+        <label>Region:  </label>
+        <input type="text" th:field="${user.address.region}" />
+      </div>
+      <div>
+        <label>Country:  </label>
+        <input type="text" th:field="${user.address.country}" />
+      </div>
+      <div>
+        <label>Zip Code:  </label>
+        <input type="text" th:field="${user.address.zipCode}" />
+      </div>
+
+      <div>
+        <div>
+          <span  id="user-id" th:text="${user.userId}"></span>
+        </div>
+
+        <div>
+          <span class="th_field" th:text="${user.username}" ></span>
+        </div>
+
+        <input type="hidden" th:field="${user.accounts}" class="th_field"></input>
+
+
+      </div>
+
+
+      <div>
+
+        <input class="btn ok_button" type="submit" value="Update Address" />
+      </div>
+
+      <a class="btn-dark" th:href="@{/userinfo/{userId}(userId=${user.userId})}">Back</a>
+
+
+    </form>
+
+
+
+
+
+
+
+
+
+    <form th:action="@{/users/{userId}/deleteaddress(userId=${user.userId})}" method="post" th:if="${user.userId != null}">
+      <button class="btn del_button" >Delete Address</button>
+    </form>
+
+  </div>
+
+
+
+
+  <a href="/userslist">Users List</a>
+  <h2> Check I/O </h2>
+
+
+</div>
+
+
+
+</body>
+</html>

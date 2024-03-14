@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Account Details</title>
+</head>
+<body>
+
+<h1 th:text="${account.accountName}"></h1>
+
+<div style="max-height: 200px; overflow-y: auto;">
+    <ul th:if="${not #lists.isEmpty(account.transactions)}">
+        <li th:each="transaction : ${account.transactions}">
+            <p th:text="${transaction.transactionDate}"></p>
+            <p th:text="${transaction.amount}"></p>
+            <p th:text="${transaction.type}"></p>
+        </li>
+    </ul>
+    <p th:if="${#lists.isEmpty(account.transactions)}">No transactions available.</p>
+</div>
+
+<form th:action="@{ /users/{userId}/accounts/{accountId}/add-transaction (userId=${user.userId}, accountId=${account.accountId})}" method="post"
+      th:object="${newTransaction}">
+    <label>Date:</label>
+    <input type="date" name="transactionDate" required/>
+
+    <label>Amount:</label>
+    <input type="number" name="amount" step="0.01" required/>
+
+    <label>Type:</label>
+    <input type="text" name="type" required/>
+
+
+    <button type="submit">Add Transaction</button>
+    <a class="btn-dark" th:href="@{/userinfo/{userId}(userId=${user.userId})}">Back</a>
+</form>
+
+
+
+
+</body>
+</html>

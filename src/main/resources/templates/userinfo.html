@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <title>Create Account</title>
+    <link rel="stylesheet" href="/css/userinfocss.css" />
+
+
+</head>
+<body>
+
+<div class="outer-box">
+    <h1>View Your Account</h1>
+
+    <div class="fx-box">
+
+        <div class="form_a">
+
+            <div class="left_info text-fields">
+
+                <h1> User Credentials</h1>
+                <div>
+                    <span  id="user-id" th:text="${user.userId}"></span>
+                </div>
+
+                <div>
+                    <span class="th_field" th:text="${user.username}" ></span>
+                </div>
+                <div>
+                    <span th:text="${user.name}" class="th_field"></span>
+                </div>
+                <div>
+                    <span th:text="${user.password}" class="th_field"></span>
+                </div>
+
+                <div class="Bank_Accounts">
+                    <h2>Bank Accounts</h2>
+                    <div th:each="account : ${user.accounts}" class="th_field">
+                        <a th:href="@{/users/{userId}/accounts/{accountId}(userId=${user.userId},accountId=${account.accountId})}">
+                            <span th:text="${account.accountName}"></span></a>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+
+            <div class="right_info text-fields">
+
+                <h1>Address</h1>
+                <div>
+                    <span  class="th_field" th:text="${user.address.addressLine1}"></span>
+                </div>
+
+                <div>
+                    <span class="th_field" th:text="${user.address.addressLine2}" ></span>
+                </div>
+                <div>
+                    <span th:text="${user.address.city}" class="th_field"></span>
+                </div>
+                <div>
+                    <span th:text="${user.address.region}" class="th_field"></span>
+                </div>
+
+                <div>
+                    <span th:text="${user.address.country}" class="th_field"></span>
+                </div>
+
+                <div>
+                    <span th:text="${user.address.zipCode}" class="th_field"></span>
+                </div>
+
+
+
+
+
+            </div>
+
+
+
+        </div>
+
+        <a th:href="@{/users/{personL}(personL=${user.userId})}"  >
+            <span>Update or Edit</span>
+        </a>
+
+
+
+    </div>
+
+
+
+    <a href="/userslist">Users List</a>
+
+</div>
+
+
+
+</body>
+</html>

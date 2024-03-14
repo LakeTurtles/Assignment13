@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Users List</title>
+    <link rel="stylesheet" href="css/userslistcss.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aldrich&family=Contrail+One&family=Montserrat:wght@300&family=Pacifico&family=Qwigley&family=Raleway&family=Roboto+Condensed:ital,wght@0,400;1,300&family=Satisfy&display=swap" rel="stylesheet">
+
+  </head>
+  <body>
+
+  <div class="preloader">
+    <img src="img/RedCharizard.jpg" class="preloader__item" alt="">
+  </div>
+
+    <header>
+      <!-- navbar  -->
+      <div class="navbar">
+        <div class="navBtn btn">
+          <i class="fas fa-bars"></i>
+        </div>
+      </div>
+
+
+
+
+
+      <!-- navbar buttons  -->
+      <div class="nav">
+        <ul class="nav__links">
+          <li id="btn-logo1"><a href="#" class="nav__single-link btn" >
+            <img src="./img/Artist_Hand_Cock.jpg" alt="Logo Artist Signature" class="nav__logo">
+          </a></li>
+          <li><a href="/" class="nav__single-link btn home-btn">home</a></li>
+          <li><a href="/register" class="nav__single-link btn">Register</a></li>
+          <li><a href="/userslist" class="nav__single-link btn"> Users List</a></li>
+          <li><a href="/modal" class="nav__single-link btn">work</a></li>
+          <li><a href="/modal" class="nav__single-link btn" >contact</a></li>
+        </ul>
+      </div>
+
+      <nav>
+        <h3 class="text-shadow" id="logo">Spring Application Using JPA and Thymeleaf</h3>
+
+      </nav>
+      <section>
+        <div class="hero">
+          <img src="img/img1.png" alt="Car Technician" />
+          <h1 class="users_header text-shadow">Users List</h1>
+
+          <div class="user_Info" style="color:orange; background: black;">
+            <span  id="user-id">ID</span>
+            <span class="th_field">Username</span>
+            <span class="th_field">Name</span>
+            <span class="th_field">Password</span>
+            <span class="th_field">Account Type</span>
+            <span class="th_field">Account Type</span>
+
+          </div>
+
+
+          <div class="user_List text-shadow" th:each="user : ${users}">
+
+
+
+
+
+            <div class="user_Info">
+              <span  id="user-id" th:text="${user.userId}"></span>
+
+              <a th:href="@{/userinfo/{personL}(personL=${user.userId})}" class="th_field" target="_blank">
+                <span th:text="${user.username}" ></span>
+              </a>
+
+              <span th:text="${user.name}" class="th_field"></span>
+              <span th:text="${user.password}" class="th_field"></span>
+              <div th:each="account : ${user.accounts}" class="th_field">
+                <span th:text="${account.accountName}" class="th_field"></span>
+              </div>
+
+            </div>
+
+          </div>
+          <h1 class="headline text-shadow">The Coders Campus Assignment 13 Application</h1>
+        </div>
+      </section>
+    </header>
+
+    <div class="slider"></div>
+
+
+    <script src="main.js"></script>
+  <script src="navbar.js"></script>
+  </body>
+</html>

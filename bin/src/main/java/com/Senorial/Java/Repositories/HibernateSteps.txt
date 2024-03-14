@@ -1,0 +1,20 @@
+
+
+
+Hibernate: insert into accounts (account_name) values (?)
+Hibernate: insert into accounts (account_name) values (?)
+Hibernate: insert into users (created_date,name,password,username) values (?,?,?,?)
+Hibernate: insert into user_account (user_id,account_id) values (?,?)
+Hibernate: insert into user_account (user_id,account_id) values (?,?)
+Hibernate: insert into accounts (account_name) values (?)
+Hibernate: insert into accounts (account_name) values (?)
+Hibernate: insert into users (created_date,name,password,username) values (?,?,?,?)
+Hibernate: insert into user_account (user_id,account_id) values (?,?)
+Hibernate: insert into user_account (user_id,account_id) values (?,?)
+Hibernate: insert into accounts (account_name) values (?)
+Hibernate: insert into accounts (account_name) values (?)
+Hibernate: insert into users (created_date,name,password,username) values (?,?,?,?)
+Hibernate: insert into user_account (user_id,account_id) values (?,?)
+Hibernate: insert into user_account (user_id,account_id) values (?,?)
+Hibernate: select u1_0.user_id,a1_0.user_id,a1_1.account_id,a1_1.account_name,a2_0.user_id,a2_0.address_line1,a2_0.address_line2,a2_0.city,a2_0.country,a2_0.region,a2_0.zip_code,u1_0.created_date,u1_0.name,u1_0.password,u1_0.username from users u1_0 left join (user_account a1_0 join accounts a1_1 on a1_1.account_id=a1_0.account_id) on u1_0.user_id=a1_0.user_id left join address a2_0 on u1_0.user_id=a2_0.user_id
+2023-12-02T10:20:52.653-08:00 ERROR 16100 --- [nio-8080-exec-1] org.thymeleaf.TemplateEngine             : [THYMELEAF][http-nio-8080-exec-1] Exception processing template "userlist": An error happened during template parsing (template: "class path resource [templates/userlist.html]")
