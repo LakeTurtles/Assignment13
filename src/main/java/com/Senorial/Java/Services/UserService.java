@@ -96,6 +96,29 @@ public class UserService {
         return userRepo.save(user);
     }
 
+    public void updateAddress(User user) {
+        User existingUser = userRepo.findById(user.getUserId()).orElse(null);
+        Address existingAddress = addressRepo.findById(user.getUserId()).orElse(null);
+
+        if (existingUser != null && existingAddress != null) {
+            existingUser.setUsername(existingUser.getUsername());
+            existingUser.setPassword(existingUser.getPassword());
+            existingUser.setName(existingUser.getName());
+            existingUser.setAccounts(existingUser.getAccounts());
+
+
+            existingAddress.setAddressLine1(user.getAddress().getAddressLine1());
+            existingAddress.setAddressLine2(user.getAddress().getAddressLine2());
+            existingAddress.setCity(user.getAddress().getCity());
+            existingAddress.setRegion(user.getAddress().getRegion());
+            existingAddress.setCountry(user.getAddress().getCountry());
+            existingAddress.setZipCode(user.getAddress().getCountry());
+
+            userRepo.save(existingUser);
+            addressRepo.save(existingAddress);
+        }
+    }
+
     public void deleteAddress(User user) {
         User existingUser = userRepo.findById(user.getUserId()).orElse(null);
         Address existingAddress = addressRepo.findById(user.getUserId()).orElse(null);

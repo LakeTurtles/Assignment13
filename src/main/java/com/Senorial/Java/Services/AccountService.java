@@ -5,6 +5,7 @@ import com.Senorial.Java.Domain.Transaction;
 import com.Senorial.Java.Domain.User;
 import com.Senorial.Java.Repositories.AccountRepository;
 import com.Senorial.Java.Repositories.UserRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -114,6 +115,7 @@ public class AccountService {
 	 * @param type The type of the transaction.
 	 */
 	public void addTransaction(Long accountId, LocalDateTime transactionDate, Double amount, String type) {
+		System.out.println("ADD TRANSACTION WAS CALLED **********************");
 		Account account = findById(accountId);
 
 		// Logging transaction details for debugging
@@ -135,6 +137,15 @@ public class AccountService {
 
 			// Logging updated account transactions for debugging
 			System.out.println("Account ID = " + account.getAccountId() + ", Account Transactions = " + account.getTransactions());
+			System.out.println("END OF TRANSACTION *******************************");
+
+
+//			ADD TRANSACTION WAS CALLED **********************
+//			Hibernate: select a1_0.account_id,a1_0.account_name from accounts a1_0 where a1_0.account_id=?
+//			Account Id = 1, Transaction date = 2024-03-15T00:00, Amount = 0.01, Type= s
+//			Hibernate: select t1_0.account_id,t1_0.transaction_id,t1_0.amount,t1_0.transaction_date,t1_0.type from transactions t1_0 where t1_0.account_id=?
+//			Account ID = 1, Account Transactions = []
+//			END OF TRANSACTION *******************************
 		}
 	}
 }

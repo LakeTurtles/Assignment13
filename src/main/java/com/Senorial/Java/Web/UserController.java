@@ -92,11 +92,35 @@ public class UserController {
     }
 
 //    return "redirect:/users/"+user.getUserId();
+
     @PostMapping("/users/{userId}")
     public String postOneUser (User user) {
-        userService.saveUser(user);
+        User tempUser = userService.findById(user.getUserId());
+
+
+        if(user.getPassword().isEmpty() && user.getPassword().isBlank()) {
+            user.setPassword(tempUser.getPassword());
+        }
+
+        if(null == user.getAddress() ) {
+            user.setAddress(tempUser.getAddress());
+        }
+
+        if(null == user.getAccounts()) {
+            user.setAccounts(tempUser.getAccounts());
+        }
+
+
+        User savedUser = userService.saveUser(user);
         return "redirect:/userslist";
     }
+
+
+//    @PostMapping("/users/{userId}")
+//    public String postOneUser (User user) {
+//        userService.saveUser(user);
+//        return "redirect:/userslist";
+//    }
 
     @GetMapping("/users/{userId}/update")
     public String getUpdatePage (ModelMap model, @PathVariable Long userId) {
